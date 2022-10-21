@@ -41,5 +41,5 @@ Viešbučio rezervacijos sistemos sudedamosios dalys:
 
 1 pav. pavaizduota programos diegimo diagrama. Programa ir jos duomenų bazė bus keliama į „Microsoft Azure“ serverį. Internetinė aplikacija bei „Viesbutis_IS“ API bus pasiekiami per HTTPS protokolą. „Viesbutis_IS“ API leis per TCP/IP ryšį pasiekti bei koreguoti programos duomenų bazę.
 
-![alt text](https://github.com/SuveizdisT/Viesbutis_IS/blob/main/deployment.jpg?raw=true) 
+![alt text](https://github.com/SuveizdisT/Viesbutis_IS/main/deployment.png?raw=true) 
 1 pav. Sistemos „Viesbutis_IS“ diegimo diagrama
