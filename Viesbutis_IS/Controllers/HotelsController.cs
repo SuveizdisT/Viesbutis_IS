@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-//using System.Web.Mvc;
 using Viesbutis_IS.Data.Dtos;
 using Viesbutis_IS.Data.Entities;
 using Viesbutis_IS.Data.Repositories;
@@ -16,7 +15,6 @@ namespace Viesbutis_IS.Controllers
             _hotelsRepository = hotelsRepository;
         }
         [HttpGet]
-        //[Route("api/hotels")] // "{hotelId}"
         [Route("")]
         public async Task<IEnumerable<HotelDto>> GetAll()
         {
@@ -48,8 +46,6 @@ namespace Viesbutis_IS.Controllers
             _hotelsRepository.CreateHotelAsync(hotel);
 
             return Created("", new HotelDto(hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));
-            /*return CreatedAtAction("GetHotel", new { hotelId = hotel.HotelId}, 
-                new HotelDto(hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));*/
         }
         [HttpPut]
         [Route("{hotelId:int}")]
