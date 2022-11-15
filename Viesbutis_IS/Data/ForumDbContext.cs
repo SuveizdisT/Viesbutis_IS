@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Viesbutis_IS.Auth.Model;
 using Viesbutis_IS.Data.Entities;
 
 namespace Viesbutis_IS.Data
 {
-    public class ForumDbContext : DbContext
+    public class ForumDbContext : IdentityDbContext<RestUser>
     {
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Corpuss> Corpusses { get; set; }
