@@ -1,4 +1,7 @@
-﻿namespace Viesbutis_IS.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using Viesbutis_IS.Auth.Model;
+
+namespace Viesbutis_IS.Data.Entities
 {
     public class Corpuss
     {
