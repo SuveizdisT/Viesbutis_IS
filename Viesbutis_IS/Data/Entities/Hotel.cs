@@ -3,7 +3,7 @@ using Viesbutis_IS.Auth.Model;
 
 namespace Viesbutis_IS.Data.Entities
 {
-    public class Hotel
+    public class Hotel : IUserCommonResource
     {
         public int HotelId { get; set; }
         public string Name { get; set; }

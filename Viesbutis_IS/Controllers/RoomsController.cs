@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Viesbutis_IS.Auth.Model;
 using Viesbutis_IS.Data.Dtos;
 using Viesbutis_IS.Data.Entities;
 using Viesbutis_IS.Data.Repositories;
@@ -37,6 +39,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = HotelRoles.Admin)]
         public ActionResult Create(int hotelsId, int corpussId, CreateRoomDto createRoom)
         {
 
@@ -62,6 +65,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpPut]
         [Route("{roomId}")]
+        [Authorize(Roles = HotelRoles.Admin)]
         public async Task<ActionResult<RoomDto>> Update(int hotelsId, int corpussId, int roomId, UpdateRoomDto updateRoom)
         {
             var room = await _roomsRepository.GetRoomAsync(hotelsId, corpussId, roomId);
@@ -77,6 +81,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpDelete]
         [Route("{roomId}")]
+        [Authorize(Roles = HotelRoles.Admin)]
         public async Task<ActionResult> Delete(int hotelsId, int corpussId, int roomId)
         {
             var room = await _roomsRepository.GetRoomAsync(hotelsId,corpussId, roomId);
