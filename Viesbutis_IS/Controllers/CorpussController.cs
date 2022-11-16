@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Viesbutis_IS.Auth.Model;
 using Viesbutis_IS.Data.Dtos;
 using Viesbutis_IS.Data.Entities;
 using Viesbutis_IS.Data.Repositories;
@@ -33,7 +35,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpPost]
         [Route("")]
-        // Susitvarkyti su null hotel CreatedResult
+        [Authorize(Roles = HotelRoles.Admin)]
         public ActionResult Create(int hotelsId, CreateCorpussDto createCorpuss)
         {
             
@@ -54,6 +56,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpPut]
         [Route("{corpussId}")]
+        [Authorize(Roles = HotelRoles.Admin)]
         public async Task<ActionResult<CorpussDto>> Update(int hotelsId, int corpussId, UpdateCorpussDto updateCorpuss)
         {
             var corpuss = await _corpussRepository.GetCorpussAsync(hotelsId,corpussId);
@@ -65,6 +68,7 @@ namespace Viesbutis_IS.Controllers
         }
         [HttpDelete]
         [Route("{corpussId}")]
+        [Authorize(Roles = HotelRoles.Admin)]
         public async Task<ActionResult> Delete(int hotelsId, int corpussId)
         {
             var corpuss = await _corpussRepository.GetCorpussAsync(hotelsId, corpussId);
