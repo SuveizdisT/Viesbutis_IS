@@ -7,13 +7,17 @@ namespace Viesbutis_IS.Data
 {
     public class ForumDbContext : IdentityDbContext<RestUser>
     {
+        private IConfiguration configuration; 
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Corpuss> Corpusses { get; set; }
         public DbSet<Room> Rooms { get; set; }
-
+        public ForumDbContext(IConfiguration config)
+        {
+            configuration = config;
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = Viesbutis_IS;");
+            optionsBuilder.UseNpgsql(configuration.GetValue<string>("PostgresSQLConnectionString"));
         }
     }
 }
