@@ -1,0 +1,109 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.NavUl{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem; 
+}
+.NavTitle{
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+.NavUl a{
+  text-decoration: none;
+  color:white;
+  margin-right: 20px;
+  
+}
+.NavUl li:hover{
+  background: #252820;
+  border-left: 6px solid #632ce4;
+  cursor: pointer; 
+}
+.hotelGetAll,
+.hotelPost {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.login-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header{
+  font-size: 24px;
+}
+img{
+  width: 50%;
+  height: 50%;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.content .img{
+  width: 40em;
+}
+form{
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form .form-group{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+}
+form .form-group input{
+  margin-top: 7px;
+  min-width: 20em;
+  height: 30px;
+  padding: 0px 10px;
+  font-size: 20px;
+  background-color: #f4f4f4;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  transition: all 300ms ease-in-out;
+}
+label{
+  font-size: 20px;
+}
+.btn{
+  font-size: 20px;
+  padding: 5px 20px;
+  border:0;
+  background-color: #3470db;
+  color: white;
+  border-radius: 3px;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #3460db;
+}
+.btn:focus{outline: none;}
