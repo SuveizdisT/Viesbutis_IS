@@ -51,6 +51,11 @@ Viešbučio rezervacijos sistemos sudedamosios dalys:
 #### GET /api/hotels
 ##### URL
 ##### Resurso informacija
+| Formatas      | Aprašymas |
+| ----------- | ----------- |
+| Užklausos rezultato formatas | JSON |
+| Naudojama autentifikacija      | ne       |
+| Naudojamos administratoriaus teisės   | ne        |
 ##### Parametrai
 ##### Užklausa
 ##### Užklausos atsakymas
