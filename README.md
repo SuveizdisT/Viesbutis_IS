@@ -47,3 +47,23 @@ Viešbučio rezervacijos sistemos sudedamosios dalys:
 ## Naudotojo sąsaja
 
 ## API specifikacija
+### Hotels
+#### GET /api/hotels
+#### GET /api/hotels/1
+#### POST /api/hotels
+#### PUT /api/hotels/2
+#### DELETE /api/hotels/3
+### Corpusses
+#### GET /api/hotels/2/corpusses
+#### GET /api/hotels/1/coupusses/1
+#### POST /api/hotels/2/corpusses
+#### PUT /api/hotels/2/corpusses/2
+#### DELETE /api/hotels/3/corpusses/1
+### Rooms
+#### GET /api/hotels/2/corpusses/1/rooms
+#### GET /api/hotels/1/corpusses/2/rooms/2
+#### POST /api/hotels/2/corpusses/2/rooms/3
+#### PUT /api/hotels/2/corpusses/2/rooms/1
+#### DELETE /api/hotels/3/corpusses/1/rooms/2
+## Išvados
+## Šaltiniai
