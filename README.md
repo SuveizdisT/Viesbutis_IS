@@ -43,3 +43,107 @@ Viešbučio rezervacijos sistemos sudedamosios dalys:
 
 ![alt text](https://github.com/SuveizdisT/Viesbutis_IS/blob/main/deployment.png?raw=true) 
 1 pav. Sistemos „Viesbutis_IS“ diegimo diagrama
+
+## Naudotojo sąsaja
+
+## API specifikacija
+### Hotels
+#### GET /api/hotels
+##### URL
+##### Resurso informacija
+| Formatas      | Aprašymas |
+| ----------- | ----------- |
+| Užklausos rezultato formatas | JSON |
+| Naudojama autentifikacija      | ne       |
+| Naudojamos administratoriaus teisės   | ne        |
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### GET /api/hotels/1
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### POST /api/hotels
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### PUT /api/hotels/2
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### DELETE /api/hotels/3
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+### Corpusses
+#### GET /api/hotels/2/corpusses
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### GET /api/hotels/1/coupusses/1
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### POST /api/hotels/2/corpusses
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### PUT /api/hotels/2/corpusses/2
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### DELETE /api/hotels/3/corpusses/1
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+### Rooms
+#### GET /api/hotels/2/corpusses/1/rooms
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### GET /api/hotels/1/corpusses/2/rooms/2
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### POST /api/hotels/2/corpusses/2/rooms/3
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### PUT /api/hotels/2/corpusses/2/rooms/1
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+#### DELETE /api/hotels/3/corpusses/1/rooms/2
+##### URL
+##### Resurso informacija
+##### Parametrai
+##### Užklausa
+##### Užklausos atsakymas
+## Išvados
+## Šaltiniai
