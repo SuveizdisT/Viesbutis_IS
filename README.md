@@ -43,3 +43,7 @@ Viešbučio rezervacijos sistemos sudedamosios dalys:
 
 ![alt text](https://github.com/SuveizdisT/Viesbutis_IS/blob/main/deployment.png?raw=true) 
 1 pav. Sistemos „Viesbutis_IS“ diegimo diagrama
+
+## Naudotojo sąsaja
+
+## API specifikacija
