@@ -34,10 +34,10 @@ class App extends React.Component{
         <Router>
           <Sidebar />
           <Routes>
-            <Route exact path='/hotels/list' element={<Hotel/>}/>
+            <Route exact path='/hotels' element={<Hotel/>}/>
             <Route exact path='/hotels/create' element={<NewHotel/>}/>
-            <Route exact path='/Login' element={<Login/>}/>
-            <Route exact path='/Register' element={<Register/>}/> 
+            <Route exact path='/login' element={<Login/>}/>
+            <Route exact path='/register' element={<Register/>}/> 
           </Routes>
         </Router>
       </div>

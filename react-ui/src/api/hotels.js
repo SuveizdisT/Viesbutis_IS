@@ -6,7 +6,7 @@ export default class Hotels{
     constructor(){
         this.host = process.env.REACT_APP_API + "hotels";
     }
-    async list() : Promise<[Number, string, hotelList]>{
+    /*async list() : Promise<[Number, string, hotelList]>{
         let [resStatus, resError] = [400, "Nothing found"];
         let [hotelList] = [];
         try {
@@ -22,5 +22,5 @@ export default class Hotels{
 
         }
         return [hotelList];
-    }
+    }*/
 }

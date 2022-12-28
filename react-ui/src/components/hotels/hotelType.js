@@ -1,4 +1,4 @@
-interface THotel {
+/*interface THotel {
     HotelId: number,
     Name: string,
     City: string,
@@ -11,4 +11,4 @@ interface THotel {
     [key: number]: THotel;
   }
   
-  export { THotel, THotelList};
+  export { THotel, THotelList};*/

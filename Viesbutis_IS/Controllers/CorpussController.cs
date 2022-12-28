@@ -21,7 +21,7 @@ namespace Viesbutis_IS.Controllers
         public async Task<IEnumerable<CorpussDto>> GetAll(int hotelsId)
         {
             var corpuss = await _corpussRepository.GetCorpussesAsync(hotelsId);
-            return corpuss.Select(c => new CorpussDto(c.Name,c.Type, hotelsId));
+            return corpuss.Select(c => new CorpussDto(c.CorpussId, c.Name,c.Type, hotelsId));
         }
         //api/hotels/{hotelsId}/corpusses/{corpussId}
         [HttpGet]
@@ -31,7 +31,7 @@ namespace Viesbutis_IS.Controllers
             var corpuss = await _corpussRepository.GetCorpussAsync(hotelsId, corpussId);
             if (corpuss == null)
                 return NotFound();
-            return new CorpussDto(corpuss.Name,corpuss.Type, hotelsId);
+            return new CorpussDto(corpuss.CorpussId, corpuss.Name,corpuss.Type, hotelsId);
         }
         [HttpPost]
         [Route("")]
@@ -50,7 +50,7 @@ namespace Viesbutis_IS.Controllers
             {
                 _corpussRepository.CreateCorpussAsync(corpuss, hotelsId);
 
-                return Created("", new CorpussDto(corpuss.Name, corpuss.Type, hotelsId));
+                return Created("", new CorpussDto(corpuss.CorpussId, corpuss.Name, corpuss.Type, hotelsId));
             }
             else return NotFound();
         }
@@ -64,7 +64,7 @@ namespace Viesbutis_IS.Controllers
                 return NotFound();
             corpuss.Type = updateCorpuss.type;
             await _corpussRepository.UpdateCorpussAsync(corpuss);
-            return Ok(new CorpussDto(corpuss.Name, corpuss.Type, hotelsId));
+            return Ok(new CorpussDto(corpuss.CorpussId, corpuss.Name, corpuss.Type, hotelsId));
         }
         [HttpDelete]
         [Route("{corpussId}")]

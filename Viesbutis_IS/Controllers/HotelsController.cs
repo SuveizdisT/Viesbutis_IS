@@ -25,7 +25,7 @@ namespace Viesbutis_IS.Controllers
         public async Task<IEnumerable<HotelDto>> GetAll()
         {
             var temp = await _hotelsRepository.GetHotelsAsync();
-            return temp.Select(t => new HotelDto(t.Name, t.City, t.Address, t.PhoneNumber));
+            return temp.Select(t => new HotelDto(t.HotelId, t.Name, t.City, t.Address, t.PhoneNumber));
         }
         //api/hotels/{hotelId}
         [HttpGet]
@@ -35,7 +35,7 @@ namespace Viesbutis_IS.Controllers
             var temp = await _hotelsRepository.GetHotelAsync(hotelId);
             if (temp == null)
                 return NotFound();
-            return new HotelDto(temp.Name,temp.City, temp.Address, temp.PhoneNumber);
+            return new HotelDto(temp.HotelId, temp.Name,temp.City, temp.Address, temp.PhoneNumber);
         }
         [HttpPost]
         [Route("")]
@@ -52,7 +52,7 @@ namespace Viesbutis_IS.Controllers
             };
             _hotelsRepository.CreateHotelAsync(hotel);
 
-            return Created("", new HotelDto(hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));
+            return Created("", new HotelDto(hotel.HotelId, hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));
         }
         [HttpPut]
         [Route("{hotelId:int}")]
@@ -69,7 +69,7 @@ namespace Viesbutis_IS.Controllers
             hotel.Address = updateHotel.address;
             hotel.PhoneNumber = updateHotel.phoneNumber;
             await _hotelsRepository.UpdateHotelAsync(hotel);
-            return Ok(new HotelDto(hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));
+            return Ok(new HotelDto(hotel.HotelId, hotel.Name, hotel.City, hotel.Address, hotel.PhoneNumber));
         }
         [HttpDelete]
         [Route("{hotelId}")]
