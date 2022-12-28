@@ -1,15 +1,66 @@
-import React, {Component} from 'react';
+import axios from 'axios';
+import React, {useState, useEffect, Component} from 'react';
 import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Hotell from '../../api/hotels';
-import {THotel, ThotelList} from './hotelType.ts';
+import {THotel, ThotelList} from './hotelType.js';
 
-type State ={
-  deps : ThotelList;
+export default function HotelList(){
+  const [hotelData, setHotels] = useState([]);
+  const fetchHotels = async () =>{
+    const token = localStorage.getItem("token");
+    const hotelD = await axios.get(
+      "https://squid-app-w4t8k.ondigitalocean.app/api/hotels", {headers: {"Authorization": 'Bearer ' + token}}
+    );
+    const temp = hotelD.data;
+    console.log(temp);
+    setHotels(temp);
+  }
+  fetchHotels();
+  //useEffect(() => {fetchHotels();});
+  //console.log(hotelData);
+  if(hotelData == []){
+    console.log("Kažkas");
+    return(<h2>None hotels found</h2>);
+  }
+  return(
+    <div className="col-md-12">
+      <Table className="mt-4" striped bordered hover responsive size="sm">
+        <thead>
+          <tr>
+            <th>HotelID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>PhoneNumber</th>
+            <th colSpan={5}>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {hotelData.map((hotel) => (
+            <tr key={hotel.hotelId}>
+              <td>{hotel.HotelId}</td>
+              <td>{hotel.Name}</td>
+              <td>{hotel.City}</td>
+              <td>{hotel.Address}</td>
+              <td>{hotel.PhoneNumber}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
+  )
 }
-export default class Hotel extends Component<State> {
+
+
+/*export default class Hotel {
   
-  constructor(props){
+  /*constructor(props){
     super(props);
     this.refreshList = this.refreshList.bind(this);
     this.state={deps:[]}
@@ -21,7 +72,7 @@ export default class Hotel extends Component<State> {
     /*fetch(process.env.REACT_API+'hotels')
     .then(response=>response.json())
     .then(data=>{
-      this.setState({deps:data});)}*/
+      this.setState({deps:data});)}
     let [responseHotels] = await this.hotell.list();
     this.setState({deps: responseHotels});
   }
@@ -32,7 +83,7 @@ export default class Hotel extends Component<State> {
     this.refreshList();
   }
 
-  render(){
+  /*render(){
     const {deps}=this.state;
     return(
       <div>
@@ -85,4 +136,4 @@ export default class Hotel extends Component<State> {
       </div>
     )
   }
-}
+}*/

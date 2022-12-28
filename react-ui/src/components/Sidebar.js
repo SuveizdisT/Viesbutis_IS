@@ -4,7 +4,8 @@ import * as RiIcons from 'react-icons/ri';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
+import { CheckToken, LogOut, GetUser } from './Auth';
 
 export const SidebarData = [
     {
@@ -16,7 +17,7 @@ export const SidebarData = [
         subNav: [
             {
                 title: 'List',
-                path: '/hotels/list',
+                path: '/hotels',
                 icon: <IoIcons.IoIosPaper/>
             },
             {
@@ -122,8 +123,14 @@ const SubMenu = ({item}) => {
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-    
-  return (
+    let navigate = useNavigate();
+
+    function toLogin(){
+        navigate('/login');
+    }
+
+    if(CheckToken()){
+    return (
     <>
         <Nav>
             <NavIcon to='#'>
@@ -132,7 +139,7 @@ const Sidebar = () => {
             <a href="/" className="NavTitle">Viešbutis_IS</a>
             <ul className="NavUl">
                 <li>
-                    <Link to="/Login">Login</Link>
+                    <button style={{backgroundColor: "black", color: "white", border: "none"}} onClick={toLogin}>Login</button>
                 </li>
                 <li>
                     <Link to="/Register">Sign Up</Link>
@@ -150,7 +157,38 @@ const Sidebar = () => {
             </SidebarWrap>
         </SidebarNav>
     </>
-  )
+  );}
+  else {
+    const line = "Hello, " + GetUser();
+    return (
+        <>
+            <Nav>
+                <NavIcon to='#'>
+                    <FaIcons.FaBars onClick={showSidebar}/>
+                </NavIcon>
+                <a href="/" className="NavTitle">Viešbutis_IS</a>
+                <ul className="NavUl">
+                    <li>
+                        <p style={{color: "white",fontSize: "20px"}}>{line}</p>
+                    </li>
+                    <li>
+                        <button style={{color: "white", backgroundColor: "black" ,fontSize: "20px"}} onClick={LogOut}>LogOut</button>
+                    </li>
+                </ul>
+            </Nav>
+            <SidebarNav sidebar={sidebar}>
+                <SidebarWrap>
+                    < NavIcon to='#'>
+                        <AiIcons.AiOutlineClose onClick={showSidebar}/>
+                    </NavIcon>
+                    {SidebarData.map((item, index) => {
+                        return <SubMenu item={item} key={index} />;
+                    })}
+                </SidebarWrap>
+            </SidebarNav>
+        </>
+    );
+  }
  };
 
 export default Sidebar;
