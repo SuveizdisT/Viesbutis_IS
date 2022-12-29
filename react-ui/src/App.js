@@ -8,6 +8,8 @@ import NewHotel from './components/hotels/hotelsCreate';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import UpdateHotel from './components/hotels/hotelsUpdate';
+import Corpusses from './components/corpusses/corpussesList';
 
 /*export default function App() {
   return (
@@ -37,7 +39,9 @@ class App extends React.Component{
             <Route exact path='/hotels' element={<Hotel/>}/>
             <Route exact path='/hotels/create' element={<NewHotel/>}/>
             <Route exact path='/login' element={<Login/>}/>
-            <Route exact path='/register' element={<Register/>}/> 
+            <Route exact path='/register' element={<Register/>}/>
+            <Route exact path='/hotels/:hotelId' element={<UpdateHotel/>}/>
+            <Route exact path='/hotels/:hotelId/corpusses' element={<Corpusses/>}/> 
           </Routes>
         </Router>
       </div>

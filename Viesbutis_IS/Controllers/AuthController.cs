@@ -51,6 +51,24 @@ namespace Viesbutis_IS.Controllers
             var accessToken = tokenService.CreateAccessToken(user.UserName, user.Id, role);
             return Ok(new SuccessLoginDto(accessToken));
         }
+        [HttpPost]
+        [Route("registera")]
+        public async Task<IActionResult> Registera(RegisterUserDto registerDto)
+        {
+            var user = await userManager.FindByNameAsync(registerDto.UserName);
+            if (user != null)
+                return BadRequest("Invalid request.");
+            var newUser = new RestUser
+            {
+                UserName = registerDto.UserName,
+                Email = registerDto.Email
+            };
+            var result = await userManager.CreateAsync(newUser, registerDto.Password);
+            if (!result.Succeeded)
+                return BadRequest("User cannot be created.");
+            await userManager.AddToRoleAsync(newUser, HotelRoles.Admin);
+            return CreatedAtAction(nameof(Registera), new RegisterUser(newUser.Id,newUser.UserName,newUser.Email));
+        }
 
     }
 }
