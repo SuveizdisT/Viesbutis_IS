@@ -38,7 +38,7 @@ namespace Viesbutis_IS.Auth
                 audience,
                 claims,
                 null,
-                DateTime.UtcNow.AddHours(1),
+                DateTime.UtcNow.AddHours(100),
                 new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256)
             );
             return new JwtSecurityTokenHandler().WriteToken(accessToken);
