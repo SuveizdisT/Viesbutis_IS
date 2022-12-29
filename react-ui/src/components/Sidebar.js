@@ -4,13 +4,12 @@ import * as RiIcons from 'react-icons/ri';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import styled from 'styled-components';
-import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { CheckToken, LogOut, GetUser } from './Auth';
 
 export const SidebarData = [
     {
         title: 'Hotels',
-        path: '/hotels',
         icon: <RiIcons.RiHotelBedFill/>,
         iconClosed: <RiIcons.RiArrowDownSFill/>,
         iconOpened: <RiIcons.RiArrowUpSFill/>,

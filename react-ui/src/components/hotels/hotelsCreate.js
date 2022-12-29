@@ -1,26 +1,8 @@
-/*import React, {Component} from 'react';
-import {Modal, Button, Row, Col, Form} from 'react-bootstrap';*/
-
-
-
 import React from 'react';
-//import loginImage from "../images/login.png";
-import {useRef, useState, useEffect, useContext} from 'react';
-import {Link, Navigate, useNavigate} from 'react-router-dom';
-//import AuthContext, { GetUser } from './Auth';
-//import axios from '../api/axios';
+import {Navigate} from 'react-router-dom';
 import axios from 'axios';
-//import {CheckToken} from './Auth';
-import { FaWindows } from 'react-icons/fa';
 import { GetRole } from '../Auth';
 
-/*export const AuthToken = token =>{
-    if(token){
-        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-        console.log(axios.defaults.headers.common["Authorization"]);
-    }
-    else delete axios.defaults.headers.common["Authorization"];
-}*/
 export const HandleSubmit = (event) =>{
     event.preventDefault();
     const token = localStorage.getItem("token");
@@ -45,10 +27,6 @@ export const HandleSubmit = (event) =>{
             crossDomain: true,
         },
     ).then(response => {
-        /*const token = response.data.accessToken;
-        localStorage.setItem('token', token);
-        AuthToken(token);*/
-        //console("Palauk");
         window.location.href = '/';
     }
     ).catch(err => {
@@ -100,68 +78,3 @@ export default function CreateHotel(){
         </div>
     )
 }
-/*export default class NewHotel extends Component{
-  constructor(props){
-    super(props);
-    this.handleSubmit=this.handleSubmit.bind(this);
-  }
-  handleSubmit(event){
-    event.preventDefault();
-    fetch(process.env.REACT_API+'hotels',{
-      method:'POST',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify({
-        HotelId: null,
-        Name: event.target.Name.value
-      })
-    })
-    .then(res => res.json())
-    .then((result)=>{
-      alert(result);
-    },
-    (error)=>{
-      alert("Failed");
-    })
-  }
-  render(){
-    return(
-      <div className="container">
-        <Modal
-          {...this.props}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered>
-            <Modal.Header closeButton>
-              <Modal.Title id="conatianed-modal-title-vcenter">
-                Add Hotel
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Row>
-                <Col sm={7}>
-                  <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="Name">
-                      <Form.Label>Name</Form.Label>
-                      <Form.Control type='text' name='Name' required
-                      placeholder='Name'/>
-                    </Form.Group>
-                    <Form.Group>
-                      <Button variant="primary" type="submit">
-                        Add Hotel
-                      </Button>
-                    </Form.Group>
-                  </Form>
-                </Col>
-              </Row>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="danger" onClick={this.props.onHide}>Close</Button>
-            </Modal.Footer>
-        </Modal>
-      </div>
-    )
-  }
-}*/
