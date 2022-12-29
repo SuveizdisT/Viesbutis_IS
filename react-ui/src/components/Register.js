@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const HandleSubmit = (event) =>{
     event.preventDefault();
-    const register_url = "https://squid-app-w4t8k.ondigitalocean.app/api/register";
+    const register_url = "https://squid-app-w4t8k.ondigitalocean.app/api/registera";
     const register_data = new FormData(event.currentTarget);
     console.log(register_data.get("password"));
     console.log(register_data.get("password2"));
@@ -26,12 +26,7 @@ export const HandleSubmit = (event) =>{
             crossDomain: true,
         },
     ).then(response => {
-       /* const token = response.data.accessToken;
-        localStorage.setItem('token', token);
-        AuthToken(token);*/
-        console.log("Pavyko");
         window.location.href = '/login';
-        //window.location.href = '/';
     }
     ).catch(err => {
         if(!err?.response){

@@ -1,21 +1,8 @@
 import React from 'react';
-//import loginImage from "../images/login.png";
-import {useRef, useState, useEffect, useContext} from 'react';
-import {Link, Navigate, useNavigate, useLocation} from 'react-router-dom';
-//import AuthContext, { GetUser } from './Auth';
-//import axios from '../api/axios';
+import {Navigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
-//import {CheckToken} from './Auth';
-import { FaWindows } from 'react-icons/fa';
 import { GetRole } from '../Auth';
 
-/*export const AuthToken = token =>{
-    if(token){
-        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-        console.log(axios.defaults.headers.common["Authorization"]);
-    }
-    else delete axios.defaults.headers.common["Authorization"];
-}*/
 export const HandleSubmit = (event) =>{
     event.preventDefault();
     const token = localStorage.getItem("token");
@@ -39,9 +26,6 @@ export const HandleSubmit = (event) =>{
             crossDomain: true,
         },
     ).then(response => {
-        /*const token = response.data.accessToken;
-        localStorage.setItem('token', token);
-        AuthToken(token);*/
         window.location.href = '/hotels';
     }
     ).catch(err => {
