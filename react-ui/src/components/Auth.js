@@ -18,9 +18,14 @@ export function LogOut(){
 }
 export function GetRole(){
     const token = localStorage.getItem("token");
-    const decode = jwtDecode(token);
-    let role = decode("http://schemas.microsoft.com/ws/2008/06/identity/claims/role");
-    return role;
+    if(token === null){
+        return [];
+    }
+    else{
+        const decode = jwtDecode(token);
+        let role = decode["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+        return role;
+    }
 }
 export function GetUser(){
     const token = localStorage.getItem("token");
